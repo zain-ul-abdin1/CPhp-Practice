@@ -13,7 +13,6 @@ class Database
     {
 
         $statment = $this->connection->prepare($query); // passing query
-
         $statment->execute($param); //executing query
 
         return $statment; // returnig what is asked in the query
