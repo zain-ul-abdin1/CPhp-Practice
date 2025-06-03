@@ -2,11 +2,17 @@
 //require "routes.php";
 require "functions.php";
 require "Database.php";
-$connect = require "connect.php";
-$db = new Database($connect["database"]);
-$posts = $db->query("select * from posts")->fetchAll();
 
-//dd($posts);
-foreach ($posts as $posts) {
-    echo "<li>" . $posts["title"] . "</li>";
-}
+$connect = require "connect.php";
+
+$id = $_GET["id"];
+//dd($id);    
+
+$db = new Database($connect["database"]);
+$query ="select * from posts where id = ?";
+$posts = $db->query($query,[$id])->fetch();
+
+dd($posts);
+// foreach ($posts as $posts) {
+//     echo "<li>" . $posts["title"] . "</li>";
+// }
