@@ -1,7 +1,8 @@
 <?php
-//require "functions.php";
+require "Response.php";
 require "Database.php";
 require "routes.php";
+require "functions.php";
 
 
 $id = $_GET["id"];
