@@ -2,6 +2,7 @@
 class Database
 {
     public $connection;
+    public $statment;
     function __construct($connect)
     {
         $option = [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC];//declaraing fetch assoc as default
@@ -12,9 +13,27 @@ class Database
     public function query($query,$param = [])       //query function
     {
 
-        $statment = $this->connection->prepare($query); // passing query
-        $statment->execute($param); //executing query
+        $this->statment = $this->connection->prepare($query); // passing query
+        $this->statment->execute($param); //executing query
 
-        return $statment; // returnig what is asked in the query
+        return $this; // returnig what is asked in the query
     }
+    public function getAll()
+    {
+        return $this->statment->fetchAll();
+    }
+    public function find()
+    {
+        return $this->statment->fetch();
+    }   
+    public function findOrFail()
+    {
+        $result= $this->find();
+        if(!$result)
+        {
+            abort();
+        }
+        return $result;
+    } 
 }
+

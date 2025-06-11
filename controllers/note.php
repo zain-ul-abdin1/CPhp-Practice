@@ -7,15 +7,8 @@ $db = new Database($connect["database"]);
  $id=$_GET["id"];
 $current_user = 2;
 
- $note = $db->query('SELECT * FROM posts WHERE id =:id',['id'=>$id])->fetch();
- dd($note);
- if(!$note)
- {
-    abort();
- }
- if($note["users_id"]!=$current_user)
- {
-    abort(Response::FORBIDDEN);
- }
+ $note = $db->query('SELECT * FROM posts WHERE id =:id',['id'=>$id])->findOrFail();
+
+ authorize($note["users_id"]==$current_user);
  //dd($note);
  require "views/note.view.php";
