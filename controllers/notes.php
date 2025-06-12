@@ -5,6 +5,6 @@ $db = new Database($connect["database"]);
 
 $heading = "My Notes";
 
-$notes = $db->query('SELECT * FROM posts WHERE users_id = 2')->getAll();
+$notes = $db->query('SELECT * FROM posts WHERE users_id = 1')->getAll();
 //dd($notes);
 require "views/notes.view.php";
