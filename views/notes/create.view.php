@@ -1,6 +1,6 @@
-<?php require('partials/header.php') ?>
-<?php require('partials/navigations.php') ?>
-<?php require('partials/banner.php') ?>
+<?php require('views/partials/header.php') ?>
+<?php require('views/partials/navigations.php') ?>
+<?php require('views/partials/banner.php') ?>
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
@@ -15,7 +15,7 @@
                                 <div class="mt-1">
                                     <textarea id="title" name="title" rows="3"
                                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                        placeholder="Here's an idea for a note..."><?= ($_POST["title"]) ?? "" ?></textarea>
+                                        placeholder="Here's an idea for a note..."><?= $_POST["title"] ?? "" ?></textarea>
                                     <?php if (isset($errors["title"])) : ?>
                                         <p class="text-red-500 text-xs mt-3"><?= $errors["title"] ?></p>
                                     <?php endif; ?>
@@ -36,4 +36,4 @@
     </div>
 </main>
 
-<?php require('partials/footer.php') ?>
+<?php require('views/partials/footer.php') ?>

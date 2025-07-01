@@ -9,4 +9,4 @@ $current_user = 1;
 $note = $db->query('SELECT * FROM posts WHERE id =:id', ['id' => $_GET["id"]])->findOrFail();
 authorize($note["users_id"] === $current_user);
 //dd($note);
-require "views/note.view.php";
+require "views/notes/show.view.php";
