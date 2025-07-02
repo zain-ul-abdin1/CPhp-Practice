@@ -1,9 +1,9 @@
-<?php require("partials/navigations.php")?>
-<?php require("partials/header.php")?>
-<?php require("partials/banner.php")?>
+<?php require base("views/partials/navigations.php")?>
+<?php require base("views/partials/header.php")?>
+<?php require base("views/partials/banner.php")?>
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
  <p>This is Home Page</p>
     </div>
   </main>
-<?php require("partials/footer.php")?>
+<?php require base("views/partials/footer.php")?>

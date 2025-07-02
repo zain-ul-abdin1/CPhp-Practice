@@ -1,5 +1,5 @@
 <?php
-$connect = require "connect.php";
+$connect = require base("connect.php");
 
 $db = new Database($connect["database"]);
 
@@ -7,4 +7,4 @@ $heading = "My Notes";
 
 $notes = $db->query('SELECT * FROM posts WHERE users_id = 1')->getAll();
 //dd($notes);
-require "views/notes/index.view.php";
+view("notes/index.view.php",['heading'=>'My Notes','notes'=>$notes]);

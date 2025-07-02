@@ -1,10 +1,10 @@
 <?php
-require "Validator.php";
-$connect = require "connect.php";
+require base("Validator.php");
+$connect = require base("connect.php");
 $db = new Database($connect["database"]);
 $heading = "Create Note";
+$errors = [];
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $errors = [];
     if(!Validate::string(($_POST["title"]),1,1000))
     {
         $errors["title"]="A body of no more than 1000 characters";
@@ -15,5 +15,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         "users_id" => 1
     ]);
     }
-}
-require "views/notes/create.view.php";
+}   
+ view("notes/create.view.php",['heading'=>'Create Note','errors'=>$errors]);

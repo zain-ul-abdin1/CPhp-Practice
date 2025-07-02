@@ -1,8 +1,9 @@
 <?php
-require "functions.php";
-require "Response.php";
-require "Database.php";
-require "routes.php";
+const BASE_PATH = __DIR__ . "/../";
+require BASE_PATH."functions.php";
+require base("Response.php");
+require base("Database.php");
+require base("routes.php");
 
 
 // $id = $_GET["id"];

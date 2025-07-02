@@ -16,3 +16,12 @@ function authorize($condition, $status = Response::FORBIDDEN)
       abort($status);
    }
 }
+function  base($path)
+{
+   return BASE_PATH . $path;
+}
+function view($path,$attributes=[])
+{
+   extract($attributes);
+   require base("views/".$path);
+}
