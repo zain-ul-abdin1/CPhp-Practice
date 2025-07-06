@@ -15,5 +15,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         "users_id" => 1
     ]);
     }
-}   
+}       
  view("notes/create.view.php",['heading'=>'Create Note','errors'=>$errors]);
