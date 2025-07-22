@@ -1,13 +1,12 @@
 <?php
 const BASE_PATH = __DIR__ . "/../";
 require BASE_PATH."core/functions.php";
-require base("core/Response.php");
-// require base("core/Database.php");
 spl_autoload_register(function($class)
 {
-    require base("core/$class.php");
+   $class= str_replace("//",DIRECTORY_SEPARATOR,$class);
+    require base("$class.php");
 });
-require base("routes.php");
+require base("core/routes.php");
 
 
 // $id = $_GET["id"];

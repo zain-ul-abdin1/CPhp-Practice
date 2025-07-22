@@ -1,5 +1,9 @@
 <?php
-require base("core/Validator.php");
+use Core\Database;
+use Core\Validate;
+spl_autoload_register(function($class){
+    return require base("core/$class.php");
+});
 $connect = require base("connect.php");
 $db = new Database($connect["database"]);
 $heading = "Create Note";

@@ -1,12 +1,12 @@
 <?php
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 
-$routes = require "core/router.php";
+$routes = require base("router.php");
 
 function routerToController($uri, $routes)
 {
     if (array_key_exists($uri, $routes)) {
-        require $routes[$uri];
+        require base($routes[$uri]);
     } else {
         abort();
     }
