@@ -1,7 +1,7 @@
 <?php
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 
-$routes = require "router.php";
+$routes = require "core/router.php";
 
 function routerToController($uri, $routes)
 {

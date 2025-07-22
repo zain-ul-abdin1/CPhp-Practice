@@ -1,5 +1,5 @@
 <?php
-require base("Validator.php");
+require base("core/Validator.php");
 $connect = require base("connect.php");
 $db = new Database($connect["database"]);
 $heading = "Create Note";
