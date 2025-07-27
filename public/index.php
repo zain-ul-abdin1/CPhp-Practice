@@ -6,27 +6,12 @@ spl_autoload_register(function($class)
    $class= str_replace("\\","/",$class);
     require base("$class.php");
 });
-require base("core/routes.php");
 
+    $router = new \Core\Router;
+    $routes = require base("router.php");
 
-// $id = $_GET["id"];
+    $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 
-// $query ="select * from posts where id = ?";
+    $method = $_POST["_method"] ?? $_SERVER["REQUEST_METHOD"];
 
-// $posts = $db->query($query,[$id])->fetch();
-
-//dd($posts);
-
-
-
-
-
-
-
-
-
-
-
-// foreach ($posts as $posts) {
-//     echo "<li>" . $posts["title"] . "</li>";
-// }
+    $router -> route($uri,$method);
