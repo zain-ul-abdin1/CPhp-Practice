@@ -1,8 +1,8 @@
 <?php
 use Core\Database;
 use Core\Validate;
-$connect = require base("connect.php");
-$db = new Database($connect["database"]);
+use Core\App;
+$db = App::resolve(Database::class);
 $errors=[];
 if(!Validate::string(($_POST["title"]),1,1000))
     {

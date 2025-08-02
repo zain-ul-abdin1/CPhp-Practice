@@ -1,8 +1,8 @@
 <?php
-use Core\Database;
 
-$connect = require base("connect.php");
-$db = new Database($connect["database"]);
+use Core\App;
+use Core\Database;
+$db = App::resolve(Database::class);
 
 $current_user = 1;
 

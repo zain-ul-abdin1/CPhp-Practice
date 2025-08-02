@@ -1,8 +1,7 @@
 <?php
 use Core\Database;
-$connect = require base("connect.php");
-
-$db = new Database($connect["database"]);
+use Core\App;
+$db = App::resolve(Database::class);
 
 $heading = "My Notes";
 
