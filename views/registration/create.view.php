@@ -24,17 +24,16 @@
                 <div>
                     <div class="flex items-center justify-between">
                         <label for="password" class="block text-sm/6 font-medium text-gray-900">Password</label>
+                    </div>
+                    <div class="mt-2">
+                        <input id="password" type="password" name="password" required autocomplete="current-password"
+                            class="block w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-base text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                         <div class="text-sm">
                             <?php if (isset($errors["password"])) : ?>
                                 <p class="text-red-500 text-xs mt-3"><?= $errors["password"] ?></p>
                             <?php endif; ?>
                         </div>
-                    </div>
-                    <div class="mt-2">
-                        <input id="password" type="password" name="password" required autocomplete="current-password"
-                            class="block w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-base text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
 
-                        <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
                     </div>
                 </div>
 
