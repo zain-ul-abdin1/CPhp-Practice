@@ -6,38 +6,32 @@ use Core\Validate;
 
 $email = $_POST["email"];
 $password = $_POST["password"];
-$errors =[];
-if (!Validate::email($email))
-{
-    $errors["email"]="Provide a valid email address";
+$errors = [];
+if (!Validate::email($email)) {
+    $errors["email"] = "Provide a valid email address";
 }
-if (!Validate::string($password,7,255))
-{
-    $errors["password"]="Provide a password of at least seven characters";
+if (!Validate::string($password, 7, 255)) {
+    $errors["password"] = "Provide a password of at least seven characters";
 }
-if(!empty($errors)){
-    return view("registration/create.view.php",[
-        "errors"=>$errors 
+if (!empty($errors)) {
+    return view("registration/create.view.php", [
+        "errors" => $errors
     ]);
 }
 $db = App::resolve(Database::class);
-$user = $db->query("select * from users where email = :email",[
-    "email"=>$email
+$user = $db->query("select * from users where email = :email", [
+    "email" => $email
 ])->find();
 
-if($user){
+if ($user) {
     header("location:/index");
     exit();
-}
-else
-{
-    $db->query("insert into users(email,password) values(:email , :password)",[
-        "email"=>$email,
-        "password"=>$password
+} else {
+    $db->query("insert into users(email,password) values(:email , :password)", [
+        "email" => $email,
+        "password" => password_hash($password, PASSWORD_BCRYPT)
     ]);
-    $_SESSION["user"] = [
-        "email"=>$email
-    ];
+    login($user);
     header("location:\index");
     exit();
 }
